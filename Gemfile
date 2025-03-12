@@ -61,3 +61,6 @@ end
 gem "nokogiri", "= 1.16.6"
 gem "devise", "~> 4.9"
 
+
+
+gem "sass-rails", "~> 6.0"

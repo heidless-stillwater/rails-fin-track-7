@@ -1,0 +1,14 @@
+// @import 'bootstrap-icons/font/bootstrap-icons';
+// @import 'bootstrap/dist/css/bootstrap';
+
+
+// app/assets/stylesheets/application.bootstrap.scss loaded with sprockets-rails
+@import 'bootstrap/scss/bootstrap';
+
+h1 {
+  color: green;
+}
+
+.navbar-brand {
+  font-size: 3rem;
+}
