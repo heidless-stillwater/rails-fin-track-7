@@ -19,12 +19,11 @@
   </head>
 
   <body>
-
     <%= render 'shared/navbar' %>
-    
-    <div class="container mt-5">
+    <div class="container mt-1">
+      <p class="notice"><%= notice %></p>
+      <p class="alert"><%= alert %></p>
       <%= yield %>
     </div>
-    
   </body>
 </html>
