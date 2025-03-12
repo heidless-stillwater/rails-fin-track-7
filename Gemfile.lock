@@ -158,6 +158,8 @@ GEM
       racc (~> 1.4)
     nokogiri (1.16.6-arm64-darwin)
       racc (~> 1.4)
+    nokogiri (1.16.6-x86-linux)
+      racc (~> 1.4)
     nokogiri (1.16.6-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.16.6-x86_64-linux)
@@ -300,15 +302,12 @@ GEM
     zeitwerk (2.7.2)
 
 PLATFORMS
-  aarch64-linux-gnu
-  aarch64-linux-musl
-  arm-linux-gnu
-  arm-linux-musl
+  aarch64-linux
+  arm-linux
   arm64-darwin
+  x86-linux
   x86_64-darwin
   x86_64-linux
-  x86_64-linux-gnu
-  x86_64-linux-musl
 
 DEPENDENCIES
   bootsnap
