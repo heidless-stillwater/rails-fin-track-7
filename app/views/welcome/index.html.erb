@@ -4,10 +4,8 @@
 <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
 
 <div class="container mt-5">
-  <h2><%= @yfs["meta"]["symbol"] %></h2>
-  <% @yfs["body"].each do |yf| %>
-    <ul>
-      <li><%= yf[1]["date"] %> : <%= yf[1]["open"] %> : <%= yf[1]["high"] %> : <%= yf[1]["low"] %> : <%= yf[1]["close"] %></li>
-    </ul>
-  <% end %>
+  <% #debugger %>
+  <h2>NEW TICKERS</h2>
+  <%= @quote_meta["currency"] %> : <%= @quote_meta["symbol"] %> : <%= @quote_meta["regularMarketPrice"] %>
+  
 </div>
