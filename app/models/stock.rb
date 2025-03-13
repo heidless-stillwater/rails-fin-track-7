@@ -10,7 +10,9 @@ class Stock < ApplicationRecord
     http.use_ssl = true
     
     request = Net::HTTP::Get.new(url)
-    request["x-rapidapi-key"] = 'e7f6e7637fmshab60958cd514432p13a37fjsn26bb0feacaee'
+#    request["x-rapidapi-key"] = 'e7f6e7637fmshab60958cd514432p13a37fjsn26bb0feacaee'
+    request["x-rapidapi-key"] = Rails.application.credentials.dig(:fin_api, :api_key)
+
     request["x-rapidapi-host"] = 'yahoo-finance15.p.rapidapi.com'
     
     response = http.request(request)
