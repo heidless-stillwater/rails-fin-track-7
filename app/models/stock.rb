@@ -16,14 +16,25 @@ class Stock < ApplicationRecord
     request["x-rapidapi-host"] = 'yahoo-finance15.p.rapidapi.com'
     
     response = http.request(request)
-    tmp = JSON.parse(response.read_body)
-
-    regularMarketPrice = tmp["meta"]["regularMarketPrice"]
-    shortName = tmp["meta"]["shortName"]
-    longName = tmp["meta"]["longName"]
-
-    new(ticker: t_symbol, name: shortName, last_price: regularMarketPrice)
+    
+    # Status
+    # puts response.code       # => '200'
+    # puts response.message    # => 'OK'
+    # puts response.class.name # => 'HTTPOK'
+    
+    # debugger
+    
+    # puts "RESPONSE STATUS: #{response.code}"
+    if response.code == "200"
+      tmp = JSON.parse(response.read_body)
+      if tmp["success"] == false
+        return nil
+      else
+        regularMarketPrice = tmp["meta"]["regularMarketPrice"]
+        shortName = tmp["meta"]["shortName"]
+        longName = tmp["meta"]["longName"]
+        new(ticker: t_symbol, name: shortName, last_price: regularMarketPrice)
+      end
+    end
   end
-
-
 end

@@ -1,13 +1,24 @@
 class StocksController < ApplicationController
 
   def search
-    # if params[:stock].present?
     
-    @stock = Stock.stock_price(params[:stock])
-    # puts @stock.ticker, @stock.name, @stock.last_price
     # debugger
+
+    @stock = nil
+    if params[:stock].present?
+      @stock = Stock.stock_price(params[:stock])
+      if @stock
+        render 'users/my_portfolio'
+      else 
+        flash[:alert] = "Symbol not Found"
+        redirect_to my_portfolio_path
+      end
+    else 
+      flash[:alert] = "Please enter a symbol to search"
+      redirect_to my_portfolio_path
+    end
+
     # render json: { ticker: @stock.ticker, name: @stock.name, last_price: @stock.last_price }
-    render 'users/my_portfolio'
   end
 end
 
