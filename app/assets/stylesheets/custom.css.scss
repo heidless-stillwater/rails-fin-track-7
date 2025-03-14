@@ -3,11 +3,20 @@
 
 
 // app/assets/stylesheets/application.bootstrap.scss loaded with sprockets-rails
-@import 'bootstrap/scss/bootstrap';
-
+// @import 'bootstrap/scss/bootstrap';
+// @import 'bootstrap-icons/font/bootstrap-icons';
+@import 'font-awesome';
 
 .search-area {
   padding-top: 50px;
+}
+
+.no-right-padding {
+  padding-right: 0 !important;
+}
+
+.no-left-padding {
+  padding-left: 0 !important;
 }
 
 // h1 {

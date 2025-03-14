@@ -62,3 +62,5 @@ gem "nokogiri", "= 1.16.6"
 gem "devise", "~> 4.9"
 gem "sass-rails", "~> 6.0"
 gem "devise-bootstrap-views", "~> 1.1"
+
+gem "font-awesome-rails", "~> 4.7"
