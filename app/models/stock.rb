@@ -1,6 +1,6 @@
 class Stock < ApplicationRecord
 
-  def self.new_lookup(t_symbol)
+  def self.stock_price(t_symbol)
     require 'uri'
     require 'net/http'
     
@@ -17,8 +17,12 @@ class Stock < ApplicationRecord
     
     response = http.request(request)
     tmp = JSON.parse(response.read_body)
-    regularMarketPrice = tmp["meta"]["regularMarketPrice"]
 
+    regularMarketPrice = tmp["meta"]["regularMarketPrice"]
+    shortName = tmp["meta"]["shortName"]
+    longName = tmp["meta"]["longName"]
+
+    new(ticker: t_symbol, name: shortName, last_price: regularMarketPrice)
   end
 
 
