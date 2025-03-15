@@ -3,6 +3,7 @@ class StocksController < ApplicationController
   def search
     
     # debugger
+    @tracked_stocks = current_user.stocks
 
     @stock = nil
     if params[:stock].present?
