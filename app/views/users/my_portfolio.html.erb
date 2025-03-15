@@ -19,10 +19,13 @@
 
 <% if @stock %>
   <div class="card card-header results-block mt-3 col-9">
+    <strong>Symbol:</strong> <%= @stock.ticker %>
+    <strong>Name:</strong> <%= @stock.name %>
+    <strong>Price:</strong> <%= @stock.last_price %>
 
     <% if current_user.can_track_stock?(@stock.ticker) %>
       <%= link_to 'Add 2 Portfolio', user_stocks_path(user: current_user, ticker: @stock.ticker),
-                                class: "btn btn-xs btn-success me-2", data: { turbo_method: :post } %>
+                                class: "btn btn-sm btn-success ms-3", data: { turbo_method: :post } %>
     <% else %>
       <span class="badge rounded-pill bg-secondary me-2">
         You are already tracking 
@@ -35,9 +38,6 @@
         <% end %>
       </span>
     <% end %>
-    <strong>Symbol:</strong> <%= @stock.ticker %>
-    <strong>Name:</strong> <%= @stock.name %>
-    <strong>Price:</strong> <%= @stock.last_price %>
   </div>
 <% end %>
 
