@@ -24,3 +24,7 @@
     <strong>Price:</strong> <%= @stock.last_price %>
   </div>
 <% end %>
+
+<% if !@tracked_stocks.empty? %>% 
+  <%= render partial: 'stocks/list' %>
+<% end %>

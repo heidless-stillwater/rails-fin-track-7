@@ -1,0 +1,27 @@
+
+<div class="row">
+  <div class="col-9">
+    <table class="table table-bordered table-striped table-hover mt-3">
+      <thead>
+        <tr>
+          <th scope="col">ticker</th>
+          <th scope="col">name</th>
+          <th scope="col">price</th>
+          <th scope="col">actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @tracked_stocks.each do |stock| %>
+          <tr>
+            <td><%= stock.ticker %></td>
+            <td><%= stock.name %></td>
+            <td><%= stock.last_price %></td>
+            <td>
+              <%= link_to 'Add to Portfolio', '#', method: :post, class: "btn btn-primary" %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
