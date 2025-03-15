@@ -2,10 +2,3 @@
 <p>Welcome to TrackerApp</p>
 
 <%= button_to "Sign Out", destroy_user_session_path, method: :delete, class: "btn btn-primary" %>
-
-<div class="container mt-5">
-  <% #debugger %>
-  <h2>NEW TICKERS</h2>
-  <%= @quote_meta["currency"] %> : <%= @quote_meta["symbol"] %> : <%= @quote_meta["regularMarketPrice"] %>
-  
-</div>

@@ -18,7 +18,14 @@
 </div>
 
 <% if @stock %>
-  <div class="card card-header results-block mt-3">
+  <div class="card card-header results-block mt-3 col-9">
+
+    <% if current_user.can_track_stock?(@stock.ticker) %>
+      <%= link_to 'Add 2 Portfolio', user_stocks_path(user: current_user, ticker: @stock.ticker),
+                                class: "btn btn-xs btn-success me-2", data: { turbo_method: :post } %>
+    <% else %>
+      <span class="badge rounded-pill bg-primary me-2">You are tracking the maximum number of stocks allowed.</span>
+    <% end %>
     <strong>Symbol:</strong> <%= @stock.ticker %>
     <strong>Name:</strong> <%= @stock.name %>
     <strong>Price:</strong> <%= @stock.last_price %>
@@ -28,3 +35,5 @@
 <% if !@tracked_stocks.empty? %>
   <%= render partial: 'stocks/list' %>
 <% end %>
+
+
