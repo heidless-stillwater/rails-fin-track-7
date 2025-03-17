@@ -13,7 +13,7 @@ class UsersController < ApplicationController
 
     @friend = nil
     if params[:friend].present?
-      @friend = User.find_by email: params[:friend]
+      @friend = User.where(email: params[:friend]).first
       if @friend
         render "users/my_friends"
       else
