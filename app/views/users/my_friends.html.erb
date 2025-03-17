@@ -32,8 +32,10 @@
             <td><strong>Actions: </strong> <%= link_to "View Profile", user_path(friend),
                               class: "btn btn-sm btn-success ms-3" %>
               <% if current_user.not_friends_with?(friend.id) %>
-                <%= link_to 'Follow friend?', friendships_path(friend: friend),
-                              class: "btn btn-sm btn-success ms-3", method: :post %>
+
+                <%= link_to 'Follor friends?', friendships_path(friend: @friend ),
+                              class: "btn btn-sm btn-success ms-3", data: { turbo_method: :post } %>
+
               <% else %>
                 <span class="badge badge-secondar">
                   You are friends
