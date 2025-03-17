@@ -1,24 +1,13 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## my_portfolio
+- views/my_portfolio.html.erb
+  - Search Stocks
+    - <%= form_tag search_stock_path, method: :get, local: true, data: { turbo: false } do  %>
+    
+      - controllers/stocks_controller.rb
+        - StocksController.search
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## my_friends
+- views/my_friends.html.erb
+  - Search Friends
+  

@@ -9,39 +9,26 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-          <li class="nav-item <%= 'active' if request.path == my_portfolio_path %>">
+          <li class="nav-item">
             <% #debugger %>
             <%= link_to "My Portfolio", my_portfolio_path, class: "nav-link #{'active' if request.path == my_portfolio_path}" %>
           </li>
-          
-          <li class="nav-item <%= 'active' if request.path == my_portfolio_path %>">
-            <% #debugger %>
-            <%= link_to "Friends", my_friends_path, class: "nav-link #{'active' if request.path == my_friends_path}" %>
+
+          <li class="nav-item">
+            <%= link_to 'My Friends', my_friends_path, class: "nav-link #{'active' if request.path == my_friends_path}" %>
           </li>
           
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-              User Profile
+              Profile
             </a>
             <ul class="dropdown-menu">
               <%= link_to edit_user_registration_path, class: "dropdown-item" do %>
                 <%= fa_icon 'edit'%> Edit Profile
               <% end %>
-
-
-              <li><a class="dropdown-item" href="#">Another action</a></li>
-              <li><hr class="dropdown-divider"></li>
-              <li><a class="dropdown-item" href="#">Something else here</a></li>
             </ul>
           </li>
 
-          <li class="nav-item">
-            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-          </li>
-          
-          <li class="nav-item">
-            <a class="nav-link" aria-disabled="true">Disabled</a>
-          </li>
         </ul>
         <ul class="ml-auto navbar-nav">
           <li class="nav-item user-name">

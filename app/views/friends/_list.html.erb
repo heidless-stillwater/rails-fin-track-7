@@ -1,0 +1,28 @@
+
+<div class="row">
+  <div class="col-9">
+    <table class="table table-bordered table-striped table-hover mt-3">
+      <thead>
+        <tr>
+          <th scope="col">email</th>
+          <th scope="col">first name</th>
+          <th scope="col">last name</th>
+          <th scope="col">actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% #debugger %>
+        <% @friends.each do |friend| %>
+          <tr>
+            <td><%= friend.email %></td>
+            <td><%= friend.first_name %></td>
+            <td><%= friend.last_name %></td>
+
+            <td><%= link_to 'Stop following', friendship_path(friend), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' },
+                                class: 'btn btn-sm btn-warning' %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
