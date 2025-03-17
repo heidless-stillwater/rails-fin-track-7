@@ -32,6 +32,7 @@ class User < ApplicationRecord
   def self.search(param)
     param.strip! 
     to_send_back = (email_matches(param) + first_name_matches(param) + last_name_matches(param)).uniq
+    # debugger
     return nil unless to_send_back
     to_send_back
   end
@@ -52,4 +53,7 @@ class User < ApplicationRecord
     where("#{field_name} like ?", "%#{param}%")
   end
 
+  def not_friends_with?(id_of_friend)
+    !self.friends.where(id: id_of_friend).exists?
+  end
 end

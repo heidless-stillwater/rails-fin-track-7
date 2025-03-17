@@ -9,12 +9,13 @@ class UsersController < ApplicationController
 
   def search
     # debugger
-    @friends = current_user.friends
+    # @friends = current_user.friends
 
-    @friend = nil
+    @friends = nil
     if params[:friend].present?
-      @friend = User.where(email: params[:friend]).first
-      if @friend
+      @friends = User.search(params[:friend])
+      # debugger
+      if @friends
         render "users/my_friends"
       else
         flash[:alert] = "user not Found"
