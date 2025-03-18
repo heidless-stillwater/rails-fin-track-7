@@ -9,7 +9,7 @@ class Stock < ApplicationRecord
     require "net/http"
 
     url = URI("https://yahoo-finance15.p.rapidapi.com/api/v1/markets/stock/history?symbol=#{t_symbol}&interval=5m&diffandsplits=false")
-
+    # debugger
     http = Net::HTTP.new(url.host, url.port)
     http.use_ssl = true
 
@@ -46,6 +46,7 @@ class Stock < ApplicationRecord
     require 'finnhub_ruby'
 
     FinnhubRuby.configure do |config|
+      # Rails.application.credentials.dig(:finnhub_api, :api_key)
       config.api_key['api_key'] = 'cvamkq1r01qsapma7mj0cvamkq1r01qsapma7mjg'
     end
 

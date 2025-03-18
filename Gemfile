@@ -66,3 +66,6 @@ gem "devise-bootstrap-views", "~> 1.1"
 gem "font-awesome-rails", "~> 4.7"
 
 gem "finnhub_ruby", "~> 1.1"
+
+gem "faker", git: "https://github.com/faker-ruby/faker.git", branch: "main"
+

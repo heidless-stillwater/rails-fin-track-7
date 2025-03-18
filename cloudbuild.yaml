@@ -20,15 +20,25 @@ steps:
       ]
     secretEnv: ["RAILS_KEY"]
 
-  # - id: "seed admin"
-  #   name: "gcr.io/google-appengine/exec-wrapper"
-  #   entrypoint: "bash"
-  #   args:
-  #     [
-  #       "-c",
-  #       "/buildstep/execute.sh -i gcr.io/${PROJECT_ID}/${_SERVICE_NAME} -s ${PROJECT_ID}:${_REGION}:${_INSTANCE_NAME} -e RAILS_MASTER_KEY=$$RAILS_KEY -- bundle exec rails logins:seed_admin"
-  #     ]
-  #   secretEnv: ["RAILS_KEY"]
+  - id: "seed admin"
+    name: "gcr.io/google-appengine/exec-wrapper"
+    entrypoint: "bash"
+    args:
+      [
+        "-c",
+        "/buildstep/execute.sh -i gcr.io/${PROJECT_ID}/${_SERVICE_NAME} -s ${PROJECT_ID}:${_REGION}:${_INSTANCE_NAME} -e RAILS_MASTER_KEY=$$RAILS_KEY -- bundle exec rails logins:seed_admin"
+      ]
+    secretEnv: ["RAILS_KEY"]
+
+  - id: "seed stocks"
+    name: "gcr.io/google-appengine/exec-wrapper"
+    entrypoint: "bash"
+    args:
+      [
+        "-c",
+        "/buildstep/execute.sh -i gcr.io/${PROJECT_ID}/${_SERVICE_NAME} -s ${PROJECT_ID}:${_REGION}:${_INSTANCE_NAME} -e RAILS_MASTER_KEY=$$RAILS_KEY -- bundle exec rails stocks:seed_stocks"
+      ]
+    secretEnv: ["RAILS_KEY"]
 
   # - id: "seed users"
   #   name: "gcr.io/google-appengine/exec-wrapper"
