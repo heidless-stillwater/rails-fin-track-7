@@ -1,5 +1,6 @@
 class FriendshipsController < ApplicationController
   def create
+    # debugger
     friend = User.find(params[:friend])
     current_user.friendships.build(friend_id: friend.id)
     if current_user.save
@@ -11,6 +12,7 @@ class FriendshipsController < ApplicationController
   end
 
   def destroy
+    # debugger
     friendship = current_user.friendships.where(friend_id: params[:id]).first
     friendship.destroy
     flash[:notice] = "Stopped following"

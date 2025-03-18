@@ -17,15 +17,12 @@
   <% end %>
 </div>
 
-<div class="results-block">
-  <%= render 'layouts/messages' %>
-</div>
-
-<% if @friends %>
+<% if @friends_srch %>
+  <% # debugger %>
   <div class="card card-header results-block">
     <table class="col-md-12">
       <tbody>
-        <% @friends.each do |friend| %>
+        <% @friends_srch.each do |friend| %>
           <tr>
             <td><strong>Name: </strong> <%= friend.full_name %></td>
             <td><strong>Email: </strong> <%= friend.email %></td>
@@ -36,8 +33,11 @@
                 <%= link_to 'Follor friends?', friendships_path(friend: @friend ),
                               class: "btn btn-sm btn-success ms-3", data: { turbo_method: :post } %>
 
+                <%= link_to 'Add Friends', friendships_path(user: current_user, friend: friend ),
+                              class: "btn btn-sm btn-success ms-3", data: { turbo_method: :post } %>
+
               <% else %>
-                <span class="badge badge-secondar">
+                <span class="badge badge-secondary">
                   You are friends
                 </span>
               <% end %>
@@ -49,5 +49,7 @@
   </div>
 <% end %>
 
-<%= render partial: 'friends/list' %>
+<% if !@friends.empty? %>
+  <%= render 'friends/list' %>
+<% end %>
 

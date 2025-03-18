@@ -1,21 +1,29 @@
 class UsersController < ApplicationController
   def my_portfolio
+    @user = current_user
     @tracked_stocks = current_user.stocks
   end
 
   def my_friends
+    puts "############################## #{current_user.email}"
     @friends = current_user.friends
+    # debugger
+    if @friends.empty? 
+      puts "############################## You have no friends"
+    else
+      puts "############################## Friends found [#{@friends.count}]"      
+    end
   end
 
   def search
     # debugger
-    # @friends = current_user.friends
+    @friends = current_user.friends
 
-    @friends = nil
+    @friends_srch = nil
     if params[:friend].present?
-      @friends = User.search(params[:friend])
+      @friends_srch = User.search(params[:friend])
       # debugger
-      if @friends
+      if @friends_srch
         render "users/my_friends"
       else
         flash[:alert] = "user not Found"
