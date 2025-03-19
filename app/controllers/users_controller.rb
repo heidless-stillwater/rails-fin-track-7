@@ -14,6 +14,11 @@ class UsersController < ApplicationController
       puts "############################## Friends found [#{@friends.count}]"      
     end
   end
+  
+  def show
+    @user = User.find(params[:id])
+    @tracked_stocks = @user.stocks
+  end
 
   def search
     # debugger
