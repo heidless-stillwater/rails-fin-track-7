@@ -22,9 +22,15 @@
             <%= link_to 'Follow friend?', friendships_path(friend: @user),
                           class: "btn btn-sm btn-success", method: :post %>
           <% else %>
-            <span class="badge bg-secondary">
-              You are friends
-            </span>
+            <% if current_user.id != @user.id  %>
+              <span class="badge bg-secondary">
+                You are friends
+              </span>
+            <% else %>
+              <span class="badge bg-success">
+                Your Account
+              </span>
+            <% end%>
           <% end %>
         </td>
       </tr>

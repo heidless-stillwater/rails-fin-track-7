@@ -4,9 +4,9 @@ namespace :logins do
     User.destroy_all
     Friendship.destroy_all
 
-    email = "arjuna@test.com"
-    first_name = "Arjuna"
-    last_name = "Lynham"
+    email = "jsnow@test.com"
+    first_name = "Jon"
+    last_name = "Snow"
     password = "password"
 
     user = User.create!(
