@@ -51,12 +51,15 @@ class Stock < ApplicationRecord
     end
 
     finnhub_client = FinnhubRuby::DefaultApi.new
-    # puts(finnhub_client.company_profile2({symbol: 'AAPL'}))
+    puts("===================================================")
+    puts(finnhub_client.company_profile2({symbol: 'TEST'}))
     company_profile = finnhub_client.company_profile2({symbol: t_symbol})
 
     finnhub_client = FinnhubRuby::DefaultApi.new
-    # puts(finnhub_client.quote('AAPL'))
     company_quote = finnhub_client.quote(t_symbol)
+    puts(company_quote)
+    puts("===================================================")
+
 
     new(ticker: t_symbol, name: company_profile.name, last_price: company_quote.c)
   end
