@@ -35,7 +35,7 @@
 <% if !@tracked_stocks.empty? %>
   <%= render 'stocks/list'%>
 <% else %>
-  <p class='lead'>This user is not tracking any stocks</p>
+  <p class='lead mt-3'>This user is not tracking any stocks</p>
 <% end %>
 <%= link_to 'Back', my_friends_path, class: "btn btn-primary mt-3" %>
 
