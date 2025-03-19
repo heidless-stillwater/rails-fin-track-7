@@ -22,6 +22,8 @@ class UsersController < ApplicationController
 
   def search
     # debugger
+    @user = current_user
+
     @friends = current_user.friends
 
     @friends_srch = nil

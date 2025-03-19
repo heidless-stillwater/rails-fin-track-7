@@ -1,6 +1,8 @@
 class StocksController < ApplicationController
   def search
     # debugger
+    @user = current_user
+    
     @tracked_stocks = current_user.stocks
 
     @stock = nil
