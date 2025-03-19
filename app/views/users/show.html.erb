@@ -20,7 +20,7 @@
         <td>
           <% if current_user.not_friends_with?(@user.id) %>
             <%= link_to 'Follow friend?', friendships_path(friend: @user),
-                          class: "btn btn-sm btn-success", method: :post %>
+                          class: "btn btn-sm btn-success", data: { turbo_method: :post } %>
           <% else %>
             <% if current_user.id != @user.id  %>
               <span class="badge bg-secondary">
