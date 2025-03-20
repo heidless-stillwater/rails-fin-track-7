@@ -7,7 +7,7 @@ namespace :logins do
     email = "jsnow@test.com"
     first_name = "Jon"
     last_name = "Snow"
-    password = "password"
+    password = "adfgadfgdfgdfgdfg"
 
     user = User.create!(
                   email: email,
