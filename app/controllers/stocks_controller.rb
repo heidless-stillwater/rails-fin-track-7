@@ -7,7 +7,8 @@ class StocksController < ApplicationController
 
     @stock = nil
     if params[:stock].present?
-      @stock = Stock.finnhub_stock_price(params[:stock])
+      t_symbol = params[:stock].upcase
+      @stock = Stock.finnhub_stock_price(t_symbol)
       # @stock = Stock.yh_finance_stock_price(params[:stock])
       if @stock
         render "users/my_portfolio"
