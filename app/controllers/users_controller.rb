@@ -30,10 +30,13 @@ class UsersController < ApplicationController
     if params[:friend].present?
       @friends_srch = User.search(params[:friend])
       # debugger
-      if @friends_srch
+
+      
+      if !@friends_srch.empty?
+        # debugger
         render "users/my_friends"
       else
-        flash[:alert] = "user not Found"
+        flash[:alert] = "No User Found"
         redirect_to my_friends_path
       end
     else
