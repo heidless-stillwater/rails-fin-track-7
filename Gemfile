@@ -69,3 +69,4 @@ gem "finnhub_ruby", "~> 1.1"
 
 gem "faker", git: "https://github.com/faker-ruby/faker.git", branch: "main"
 
+gem "stripe", "~> 13.5"
