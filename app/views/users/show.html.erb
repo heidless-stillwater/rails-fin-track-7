@@ -2,6 +2,11 @@
 
 
 <div class="card card-header results-block mt-3">
+  <%= gravatar_for @user, size: 300 %>
+
+  <div class="my-5">
+    <h4 class="text-center text-white">BIO HERE<%= simple_format(@user.bio) %></h4>
+  </div>
   <table class="col-md-12">
     <tbody>
       <tr>

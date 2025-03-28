@@ -8,13 +8,13 @@ class UsersController < ApplicationController
     puts "############################## #{current_user.email}"
     @friends = current_user.friends
     # debugger
-    if @friends.empty? 
+    if @friends.empty?
       puts "############################## You have no friends"
     else
-      puts "############################## Friends found [#{@friends.count}]"      
+      puts "############################## Friends found [#{@friends.count}]"
     end
   end
-  
+
   def show
     @user = User.find(params[:id])
     @tracked_stocks = @user.stocks
@@ -31,7 +31,6 @@ class UsersController < ApplicationController
       @friends_srch = User.search(params[:friend])
       # debugger
 
-      
       if !@friends_srch.empty?
         # debugger
         render "users/my_friends"
@@ -46,5 +45,10 @@ class UsersController < ApplicationController
 
     # render json: { ticker: @stock.ticker, name: @stock.name, last_price: @stock.last_price }
   end
-end
 
+  # private
+
+  # def user_params
+  #   params.require(:user).permit(:username, :email, :password, :admin, :bio, :avatar, :content, images: [])
+  # end
+end
