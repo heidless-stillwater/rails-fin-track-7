@@ -1,10 +1,14 @@
 class User < ApplicationRecord
+  has_one_attached :avatar  # for single image upload
+  # has_many_attached :images #for multiple image upload
+  # has_rich_text :content #for rich text editor
+
   has_many :user_stocks
   has_many :stocks, through: :user_stocks
 
   has_many :friendships
   has_many :friends, through: :friendships
-  
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -13,9 +17,9 @@ class User < ApplicationRecord
   def stock_already_tracked?(ticker_symbol)
     stock = Stock.check_db(ticker_symbol)
     return false unless stock
-    stocks.where(id: stock.id).exists?    
+    stocks.where(id: stock.id).exists?
   end
-  
+
   def under_stock_limit?
     stocks.count < 10
   end
@@ -28,9 +32,9 @@ class User < ApplicationRecord
     return "#{first_name} #{last_name}" if first_name || last_name
     "Anonymous"
   end
-         
+
   def self.search(param)
-    param.strip! 
+    param.strip!
     to_send_back = (email_matches(param) + first_name_matches(param) + last_name_matches(param)).uniq
     # debugger
     return nil unless to_send_back
@@ -38,15 +42,15 @@ class User < ApplicationRecord
   end
 
   def self.email_matches(param)
-    matches('email', param)
+    matches("email", param)
   end
 
   def self.first_name_matches(param)
-    matches('first_name', param)
+    matches("first_name", param)
   end
 
   def self.last_name_matches(param)
-    matches('last_name', param)
+    matches("last_name", param)
   end
 
   def self.matches(field_name, param)

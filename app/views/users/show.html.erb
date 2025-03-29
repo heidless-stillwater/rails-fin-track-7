@@ -1,8 +1,11 @@
 <h2>User Details</h2>
 
+<div class="card card-header results-block mt-3 justify-content-center">
+  <!-- <%= gravatar_for @user, size: 300 %> -->
 
-<div class="card card-header results-block mt-3">
-  <%= gravatar_for @user, size: 300 %>
+  <div class="img-responsive center-block">
+    <%= image_tag @user.avatar, width: "400" %>
+  </div>
 
   <div class="my-5">
     <p class="text-center text-white"><%= simple_format(@user.bio) %></p>
