@@ -373,16 +373,19 @@ DEPENDENCIES
   devise (~> 4.9)
   devise-bootstrap-views (~> 1.1)
   faker!
+  ffi (~> 1.17)
   finnhub_ruby (~> 1.1)
   font-awesome-rails (~> 4.7)
   image_processing (~> 1.2)
   jbuilder
   jsbundling-rails
+  mini_magick (~> 5.2)
   nokogiri (= 1.16.6)
   pg (~> 1.1)
   puma (>= 5.0)
   rails (~> 7.2.2, >= 7.2.2.1)
   rubocop-rails-omakase
+  ruby-vips (~> 2.2)
   sass-rails (~> 6.0)
   selenium-webdriver
   sprockets-rails
