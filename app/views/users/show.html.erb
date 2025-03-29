@@ -1,56 +1,64 @@
-<h2>User Details</h2>
 
-<div class="card card-header results-block mt-3 justify-content-center">
-  <!-- <%= gravatar_for @user, size: 300 %> -->
-
-  <div class="img-responsive center-block">
-    <%= image_tag @user.avatar, width: "400" %>
-  </div>
-
-  <div class="my-5">
-    <p class="text-center text-white"><%= simple_format(@user.bio) %></p>
-  </div>
+<div class="container">
   
-  <table class="col-md-12">
-    <tbody>
-      <tr>
-        <td>
-          <span class="me-3">
-            <strong>Name: </strong> <%= @user.full_name %>
-          </span>
-        </td>
+  <h2 class="text-center mt-8 mb-4 text-white">User Profile</h2>
 
-        <td>
-          <span class="me-3">
-            <strong>Email: </strong> <%= @user.email %>
-          </span>
-        </td>
-        
-        <td>
-          <% if current_user.not_friends_with?(@user.id) %>
-            <%= link_to 'Follow friend?', friendships_path(friend: @user),
-                          class: "btn btn-sm btn-success", data: { turbo_method: :post } %>
-          <% else %>
-            <% if current_user.id != @user.id  %>
-              <span class="badge bg-secondary">
-                You are friends
+  <div class="">    
+    <div class="card card-header results-block mt-3">
+      <!-- <%= gravatar_for @user, size: 300 %> -->
+
+      <div class="img-responsive center-block">
+        <%= image_tag @user.avatar, width: "400", class: "mx-auto d-block" %>
+      </div>
+
+      <div class="my-5">
+        <h4 class="text-center text-white"><%= @user.content %></h4>
+      </div>
+      
+      <table class="col-md-12">
+        <tbody>
+          <tr>
+            <td>
+              <span class="me-3">
+                <strong>Name: </strong> <%= @user.full_name %>
               </span>
-            <% else %>
-              <span class="badge rounded-pill text-bg-warning ms-2">
-                Your Account
+            </td>
+
+            <td>
+              <span class="me-3">
+                <strong>Email: </strong> <%= @user.email %>
               </span>
-            <% end%>
-          <% end %>
-        </td>
-      </tr>
-    </tbody>
-  </table>
+            </td>
+            
+            <td>
+              <% if current_user.not_friends_with?(@user.id) %>
+                <%= link_to 'Follow friend?', friendships_path(friend: @user),
+                              class: "btn btn-sm btn-success", data: { turbo_method: :post } %>
+              <% else %>
+                <% if current_user.id != @user.id  %>
+                  <span class="badge bg-secondary">
+                    You are friends
+                  </span>
+                <% else %>
+                  <span class="badge rounded-pill text-bg-warning ms-2">
+                    Your Account
+                  </span>
+                <% end%>
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <% if !@tracked_stocks.empty? %>
+    <%= render 'stocks/list'%>
+  <% else %>
+    <p class='lead mt-3'>This user is not tracking any stocks</p>
+  <% end %>
+
+  
+  <%= link_to 'Back', my_friends_path, class: "btn btn-primary mt-3" %>
+
 </div>
-
-<% if !@tracked_stocks.empty? %>
-  <%= render 'stocks/list'%>
-<% else %>
-  <p class='lead mt-3'>This user is not tracking any stocks</p>
-<% end %>
-<%= link_to 'Back', my_friends_path, class: "btn btn-primary mt-3" %>
-
