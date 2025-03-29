@@ -6,6 +6,20 @@ local:
   service: Disk
   root: <%= Rails.root.join("storage") %>
 
+google:
+  service: GCS
+  project: rails_fin_track_7
+  credentials: <%= Rails.application.credentials.dig(:gcs_storage, :gcs_keyfile) %>
+  bucket: <%= Rails.application.credentials.dig(:gcs_storage, :gcs_bucket) %>
+
+#  bucket: your_own_bucket-<%= Rails.env %>
+
+google_dev:
+  service: GCS
+  project: rails_fin_track_7
+  credentials: <%= Rails.application.credentials.dig(:gcs_storage, :gcs_keyfile) %>
+  bucket: <%= Rails.application.credentials.dig(:gcs_storage, :gcs_bucket) %>
+
 # Use bin/rails credentials:edit to set the AWS secrets (as aws:access_key_id|secret_access_key)
 # amazon:
 #   service: S3
