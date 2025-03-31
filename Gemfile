@@ -58,7 +58,7 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem "nokogiri", "= 1.16.6"
+gem "nokogiri", "1.18.7"
 gem "devise", "~> 4.9"
 gem "sass-rails", "~> 6.0"
 gem "devise-bootstrap-views", "~> 1.1"
