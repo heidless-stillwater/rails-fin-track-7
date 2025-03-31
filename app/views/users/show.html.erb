@@ -5,11 +5,7 @@
 
   <div class="">    
     <div class="card card-header results-block mt-3">
-      <!-- <%= gravatar_for @user, size: 300 %> -->
-
-      <div class="img-responsive center-block">
-        <%= image_tag @user.avatar, width: "400", class: "mx-auto d-block" %>
-      </div>
+      <%= gravatar_for @user, size: 300 %>
 
       <div class="my-5">
         <h4 class="text-center text-white"><%= @user.content %></h4>
