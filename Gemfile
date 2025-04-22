@@ -77,4 +77,4 @@ gem "mini_magick", "~> 5.2"
 
 gem "ffi", "~> 1.17"
 
-gem "google-cloud-storage", "~> 1.55"
+gem "google-cloud-storage", "~> 1.56"
