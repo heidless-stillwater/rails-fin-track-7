@@ -6,7 +6,7 @@
 # Be sure to update the nodejs install command if the base image OS is updated.
 
 # FROM ruby:3.2-buster
-FROM ruby:3.2
+FROM ruby:3.2-bookworm
 
 # ARG RUBY_VERSION=3.2.2
 # FROM docker.io/library/ruby:$RUBY_VERSION-buster AS base
